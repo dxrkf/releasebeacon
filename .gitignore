@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.releasebeacon-state.json
+/dashboard.html
+/report.json
+/team-state.json
+/team-dashboard.html
+/private-watchlists/

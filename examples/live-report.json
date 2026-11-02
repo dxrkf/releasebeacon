@@ -1,0 +1,33 @@
+{
+  "format": "releasebeacon-report-v1",
+  "checked_at": "2026-11-02T04:21:28.163814+00:00",
+  "results": [
+    {
+      "repo": "cli/cli",
+      "current": "v2.100.0",
+      "release": {
+        "id": 424663522,
+        "tag": "v2.103.3",
+        "name": "GitHub CLI 2.103.3",
+        "url": "https://github.com/cli/cli/releases/tag/v2.103.3",
+        "published_at": "2026-10-26T19:20:08Z"
+      },
+      "status": "REVIEW_DIFFERENT_TAG",
+      "changed_since_previous": null
+    },
+    {
+      "repo": "psf/requests",
+      "current": "v2.33.0",
+      "release": {
+        "id": 322757947,
+        "tag": "v2.34.2",
+        "name": "v2.34.2",
+        "url": "https://github.com/psf/requests/releases/tag/v2.34.2",
+        "published_at": "2026-05-14T19:27:15Z"
+      },
+      "status": "REVIEW_DIFFERENT_TAG",
+      "changed_since_previous": null
+    }
+  ],
+  "errors": 0
+}
