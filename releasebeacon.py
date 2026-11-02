@@ -63,7 +63,7 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self,*args):return None
 
 
-def fetch_release(repo,token=None,timeout=15,opener=None):
+def fetch_release(repo,token=None,timeout=30,opener=None):
     valid_repo(repo)
     headers={'User-Agent':'ReleaseBeacon/1.0','Accept':'application/vnd.github+json'}
     if token:headers['Authorization']='Bearer '+token
@@ -126,7 +126,7 @@ def atomic_write(path,text):
 
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('config');p.add_argument('--state',default='.releasebeacon-state.json');p.add_argument('--html');p.add_argument('--json',action='store_true');p.add_argument('--check',action='store_true');p.add_argument('--timeout',type=int,default=15)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('config');p.add_argument('--state',default='.releasebeacon-state.json');p.add_argument('--html');p.add_argument('--json',action='store_true');p.add_argument('--check',action='store_true');p.add_argument('--timeout',type=int,default=30)
     args=p.parse_args()
     try:
         if not 1<=args.timeout<=60:raise ValueError('timeout must be 1 to 60 seconds')

@@ -65,7 +65,7 @@ This detects a changed latest release identity, not every intermediate release. 
 
 ## Network, privacy and rate limits
 
-Each repository causes one request to the fixed HTTPS host `api.github.com`; up to four requests run concurrently. Default timeout is 15 seconds per request (`--timeout 1` through `--timeout 60`). Responses are capped at 2 MB, and HTTP redirects are refused, including redirects for moved repositories. Update renamed repositories explicitly.
+Each repository causes one request to the fixed HTTPS host `api.github.com`; up to four requests run concurrently. Default timeout is 30 seconds per request (`--timeout 1` through `--timeout 60`). Responses are capped at 2 MB, and HTTP redirects are refused, including redirects for moved repositories. Update renamed repositories explicitly.
 
 Public repositories can be checked without a token, subject to GitHub's API limits. An optional `GITHUB_TOKEN` environment variable adds an Authorization header for that API host. Do not put tokens in the watchlist, reports, source code or shell history. The program never stores or prints the token, does not request new permissions and does not follow redirects with it. Use a token only if you need it, with the smallest suitable access.
 
@@ -97,7 +97,7 @@ On **2026-11-02**, the actual CLI fetched `cli/cli` and `psf/requests` with **tw
 - [Live JSON report](examples/live-report.json)
 - [Generated HTML dashboard](examples/live-dashboard.html) — download to view locally
 
-These files are snapshots, not continuously updated content. Run the command to retrieve current data. A subsequent live repeat encountered request failures and correctly returned exit 2 without presenting cached releases as successful current fetches; its previous successful history was preserved. Network availability can vary. Development validation also used mocked responses for HTTP 404, rate limits, timeouts, malformed metadata and size limits. No live rate-limit exhaustion or private-token test was performed.
+These files are snapshots, not continuously updated content. Run the command to retrieve current data. A subsequent live repeat encountered request failures and correctly returned exit 2 without presenting cached releases as successful current fetches; its previous successful history was preserved. A later repeat with a 30-second timeout succeeded on both repositories, confirmed unchanged release IDs, and correctly returned the review exit code. The default timeout is now 30 seconds. Network availability can vary. Development validation also used mocked responses for HTTP 404, rate limits, timeouts, malformed metadata and size limits. No live rate-limit exhaustion or private-token test was performed.
 
 ## Tests
 
